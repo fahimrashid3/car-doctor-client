@@ -4,7 +4,7 @@ import ServiceCard from "./ServiceCard";
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -27,6 +27,11 @@ const Services = () => {
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
+        </div>
+        <div className="lg:my-16 md:my-10 my-6 text-center">
+          <button className="btn btn-outline btn-error font-semibold text-lg">
+            More Services
+          </button>
         </div>
       </div>
     </div>

@@ -2,8 +2,28 @@ import { FaGoogle, FaLinkedinIn } from "react-icons/fa6";
 import img from "../../assets/images/login/login.svg";
 import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
+  const handelLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
@@ -11,14 +31,17 @@ const Login = () => {
           <img src={img} alt="" />
         </div>
         <div className="card w-full max-w-sm shrink-0  border-2 rounded-lg ">
-          <h1 className="text-center font-semibold text-5xl mt-10">Login</h1>
-          <form className="card-body">
+          <h1 className="text-center font-semibold text-5xl mt-10">
+            Login Now !
+          </h1>
+          <form onSubmit={handelLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -30,6 +53,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required

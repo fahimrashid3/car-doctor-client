@@ -29,10 +29,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>
@@ -59,10 +59,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>
@@ -89,10 +89,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>
@@ -119,10 +119,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>
@@ -149,10 +149,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>
@@ -179,10 +179,10 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-5">
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error font-semibold text-lg text-white">
                 Discover More
               </button>
-              <button className="btn btn-outline btn-error hover:text-white">
+              <button className="btn btn-outline btn-error font-semibold text-lg hover:text-white">
                 Latest Project
               </button>
             </div>

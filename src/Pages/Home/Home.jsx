@@ -2,7 +2,7 @@ import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Services from "./Services/services";
 import Navbar from "../Shared/Navbar/Navbar";
-import Footer from "../Shared/Footer/Footer";
+import Contact from "./Contact/Contact";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <About></About>
       <Services></Services>
-      <Footer></Footer>
+      <Contact></Contact>
     </div>
   );
 };

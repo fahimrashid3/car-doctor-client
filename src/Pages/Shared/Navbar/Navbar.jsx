@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <Link to="/service">Services</Link>
+        <NavLink to="/service">Services</NavLink>
       </li>
       <li>
-        <Link to="/blog">Blog</Link>
+        <NavLink to="/blog">Blog</NavLink>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <NavLink to="/contact">Contact</NavLink>
       </li>
     </>
   );
@@ -56,7 +56,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-error">Appointment</button>
+        <button className="btn btn-outline btn-error text-lg font-semibold">
+          Appointment
+        </button>
       </div>
     </div>
   );

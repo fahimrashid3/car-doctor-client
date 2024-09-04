@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import PropTypes from "prop-types"; // ES6
 
 const ServiceCard = ({ service }) => {
-  const { title, img, price, description } = service;
+  const { _id, title, img, price } = service;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
@@ -12,13 +12,13 @@ const ServiceCard = ({ service }) => {
       <div className="card-body">
         <h2 className="card-title font-bold text-2xl">{title}</h2>
 
-        <div className="flex">
+        <div className="flex justify-between items-center">
           <p className="font-semibold text-xl text-red-500">{price}</p>
-          <p className="font-semibold text-xl text-red-500">
-            <Link>
+          <Link to={`/services/${_id}`}>
+            <div className="hover:bg-red-500 bg-dark-200 hover:text-white text-red-500 text-right text-2xl p-3 rounded-full ">
               <FaArrowRight />
-            </Link>
-          </p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
