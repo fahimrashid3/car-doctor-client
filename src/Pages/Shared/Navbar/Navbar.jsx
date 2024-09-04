@@ -1,7 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
   const links = (
     <>
       <li>
@@ -56,9 +70,20 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-error text-lg font-semibold">
-          Appointment
-        </button>
+        {user?.email ? (
+          <button
+            onClick={handelLogOut}
+            className="btn btn-outline btn-error text-lg font-semibold"
+          >
+            log Out
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-outline btn-error text-lg font-semibold">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

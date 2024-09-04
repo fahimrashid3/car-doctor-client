@@ -12,6 +12,7 @@ const SignUp = () => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
+    const name = form.name.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
     if (password === confirmPassword) {
@@ -37,6 +38,18 @@ const SignUp = () => {
             Sign Up now !
           </h1>
           <form onSubmit={handelSingUp} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
