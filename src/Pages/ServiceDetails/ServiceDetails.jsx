@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import imgBanner from "../../assets/images/checkout/checkout.png";
 import { MdOutlineDocumentScanner } from "react-icons/md";
@@ -142,9 +142,11 @@ const ServiceDetails = () => {
             </div>
           </div>
           <h1 className="font-bold text-4xl">Price: ${price}</h1>
-          <button className="btn btn-error font-semibold text-sm text-white w-full">
-            Proceed Checkout
-          </button>
+          <Link to={`/checkOut/${_id}`}>
+            <button className="btn btn-error font-semibold text-sm text-white w-full">
+              Proceed Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
