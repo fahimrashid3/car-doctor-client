@@ -2,19 +2,38 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handelLogOut = () => {
-    logOut()
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be loged out!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Log out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            // Sign-out successful.
+          })
+          .catch((error) => {
+            // An error happened.
+            console.log(error);
+          });
+        Swal.fire({
+          title: "Log Out!",
+          text: "Log out successfully",
+          icon: "success",
+        });
+      }
+    });
   };
   const links = (
     <>
@@ -71,12 +90,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <button
-            onClick={handelLogOut}
-            className="btn btn-outline btn-error text-lg font-semibold"
-          >
-            log Out
-          </button>
+          <div className="flex items-center gap-5">
+            <Link to="/bookings" className="text-4xl">
+              <CiShoppingCart />
+            </Link>
+            <button
+              onClick={handelLogOut}
+              className="btn btn-outline btn-error text-lg font-semibold"
+            >
+              log Out
+            </button>
+          </div>
         ) : (
           <Link to="/login">
             <button className="btn btn-outline btn-error text-lg font-semibold">

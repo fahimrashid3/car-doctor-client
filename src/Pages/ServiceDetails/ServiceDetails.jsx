@@ -10,20 +10,6 @@ import logo from "../../assets/logo.svg";
 const ServiceDetails = () => {
   const service = useLoaderData();
 
-  //   const [allServices, setAllServices] = useState(null);
-  //   const [services, setServices] = useState(null);
-  //   useEffect(() => {
-  //     fetch("http://localhost:5000/services")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setAllServices(data);
-  //         setServices(
-  //           allServices.filter((singleServices) => singleServices._id !== _id)
-  //         );
-  //         console.log(services.title);
-  //       });
-  //   }, []);
-
   const { _id, title, img, description, facility, price } = service;
   return (
     <div>
