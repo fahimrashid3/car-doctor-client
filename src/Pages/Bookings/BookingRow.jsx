@@ -1,5 +1,8 @@
-const BookingRow = ({ booking }) => {
+import Swal from "sweetalert2";
+
+const BookingRow = ({ booking, handelDeleteOrder, handelStatusChange }) => {
   const {
+    _id,
     img,
     customerName,
     email,
@@ -7,12 +10,15 @@ const BookingRow = ({ booking }) => {
     phoneNumber,
     service,
     price,
-    message,
+    status,
   } = booking;
   return (
     <div>
       <div className="md:flex items-center justify-between gap-5 hidden">
-        <button className="btn btn-circle">
+        <button
+          onClick={() => handelDeleteOrder(_id)}
+          className="btn btn-circle"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -44,7 +50,16 @@ const BookingRow = ({ booking }) => {
         </div>
         <div className="lg:flex-1">{date}</div>
         <div className="lg:flex-1">
-          <button className="btn btn-outline btn-success">Approve</button>
+          {status === "confirm" ? (
+            <button className="btn btn-outline btn-success">confirm</button>
+          ) : (
+            <button
+              className="btn btn-outline btn-warning"
+              onClick={() => handelStatusChange(_id)}
+            >
+              Pending
+            </button>
+          )}
         </div>
       </div>
       <div className="card bg-base-100 shadow-xl grid md:hidden max-w-screen-sm ">
@@ -75,7 +90,35 @@ const BookingRow = ({ booking }) => {
             </p>
           </div>
           <div className="card-actions">
-            <button className="btn btn-outline btn-success">Approve</button>
+            <button
+              onClick={() => handelDeleteOrder(_id)}
+              className="btn btn-circle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            {status === "confirm" ? (
+              <button className="btn btn-outline btn-success">confirm</button>
+            ) : (
+              <button
+                className="btn btn-outline btn-warning"
+                onClick={() => handelStatusChange(_id)}
+              >
+                Pending
+              </button>
+            )}
           </div>
         </div>
       </div>
